@@ -1,6 +1,6 @@
 def get_total(portfolio):
     """Calculates the sum of all monthly SIPs."""
-    return sum(item['amount'] for item in portfolio)
+    return sum(sip['amount'] for sip in portfolio)
 
 def calculate_hhi(portfolio):
     """Calculates Concentration Risk using the HHI Index."""
@@ -8,7 +8,7 @@ def calculate_hhi(portfolio):
     if total == 0: return 0
     
     # Square of the percentage weights
-    hhi = sum(((item['amount'] / total) * 100)**2 for item in portfolio)
+    hhi = sum(((sip['amount'] / total) * 100)**2 for sip in portfolio)
     return hhi
 
 def calculate_survival_buffer(monthly_sip, months=6):
