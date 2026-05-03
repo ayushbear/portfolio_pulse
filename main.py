@@ -3,14 +3,14 @@ from analytics import get_total, calculate_hhi, calculate_survival_buffer, get_r
 
 def display_dashboard():
     portfolio = load_portfolio()
-    sip = get_total(portfolio)
+    total_sip = get_total(portfolio)
     hhi = calculate_hhi(portfolio)
-    buffer = calculate_survival_buffer(sip, months=6)
+    buffer = calculate_survival_buffer(total_sip, months=6)
 
     print("\n" + "="*45)
     print("      PORTFOLIO PULSE: HEALTH TERMINAL      ")
     print("="*45)
-    print(f"MONTHLY OUTFLOW:   ₹{sip:,.2f}")
+    print(f"MONTHLY OUTFLOW:   ₹{total_sip:,.2f}")
     print(f"CONCENTRATION (HHI): {hhi:.0f} points")
     
     # Diversity Logic
